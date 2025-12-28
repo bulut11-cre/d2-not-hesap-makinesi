@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Not Hesaplama</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Open Graph / WhatsApp preview -->
+  <meta property="og:title" content="Not Hesaplama - İMÜ Tıp Dönem 2" />
+  <meta property="og:description" content="İstanbul Medeniyet Üniversitesi Tıp Fakültesi Dönem 2 için hazırlanmış not hesaplayıcı program" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yusufsamiozturk.github.io/d2-not-hesap-makinesi/" />
+  <meta property="og:image" content="https://yusufsamiozturk.github.io/d2-not-hesap-makinesi/preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo">🩺</div>
+        <div>
+          <h1>Not Hesaplama</h1>
+          <p class="muted">İstanbul Medeniyet Üniversitesi Tıp Fakültesi Dönem 2 için hazırlanmış not hesaplayıcı program</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- MENU -->
+    <section id="view-menu" class="view active">
+      <div class="card">
+        <h2>Menü</h2>
+        <p class="muted">İhtiyacın olan hesaplayıcıyı seç.</p>
+
+        <div class="grid">
+          <button class="menu-btn" data-go="view-calc1">
+            <span class="menu-title">1) Yıl Sonu Ortalama ve Harf Notu</span>
+            <span class="menu-desc">Kurul + Final notlarını gir → yıl sonu ortalamanı ve harf notunu gör.</span>
+          </button>
+
+          <button class="menu-btn" data-go="view-calc2">
+            <span class="menu-title">2) Finalde Minimum Kaç Lazım?</span>
+            <span class="menu-desc lines">
+              <span>Kurul notlarını gir → sınıfı geçmek için finalde kaç alman lazım?</span>
+              <span>Finali 50'ye bırakmak için kurullardan kaç alman lazım?</span>
+            </span>
+          </button>
+
+          <button class="menu-btn" data-go="view-calc3">
+            <span class="menu-title">3) Finalsiz Olacak Mı?</span>
+            <span class="menu-desc lines">
+              <span>Kurul notlarını gir → finalsiz geçebilecek misin?</span>
+              <span>Finalsiz geçebilmek için kurullardan kaç alman lazım?</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Replaced rules box with coefficients -->
+        <div class="note">
+          <div class="note-title">Katsayılar</div>
+          <div class="coeff">
+            <div class="row"><div>Kurul 1 – Kardiyovasküler Sistem</div><div class="val">11</div></div>
+            <div class="row"><div>Kurul 2 – Kan ve Solunum Sistemleri</div><div class="val">12</div></div>
+            <div class="row"><div>Kurul 3 – Gastrointestinal Sistem ve Metabolizma</div><div class="val">11</div></div>
+            <div class="row"><div>Kurul 4 – Sinir Sistemi</div><div class="val">12</div></div>
+            <div class="row"><div>Kurul 5 – Endokrin ve Ürogenital Sistemler</div><div class="val">10</div></div>
+            <div class="row"><div>Bilimsellik Kurulu</div><div class="val">2</div></div>
+            <div class="row"><div>İyi Hekimlik Uygulamaları</div><div class="val">2</div></div>
+            <div class="row"><div>Final Sınavı</div><div class="val">40</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALC 1 -->
+    <section id="view-calc1" class="view">
+      <div class="card">
+        <div class="topbar">
+          <button class="back-btn" data-back>← Menüye Dön</button>
+          <h2>1) Yıl Sonu Ortalama ve Harf Notu</h2>
+        </div>
+
+        <p class="muted">Tüm notları gir. (0–100)</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>Kurul 1 (%11)</label>
+            <input id="c1_k1" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Kurul 2 (%12)</label>
+            <input id="c1_k2" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Kurul 3 (%11)</label>
+            <input id="c1_k3" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Kurul 4 (%12)</label>
+            <input id="c1_k4" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Kurul 5 (%10)</label>
+            <input id="c1_k5" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Bilimsellik (%2)</label>
+            <input id="c1_bil" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>İyi Hekimlik Uyg. (%2)</label>
+            <input id="c1_ihu" type="number" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Final (%40)</label>
+            <input id="c1_final" type="number" min="0" max="100" step="0.1" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="btn_calc1">Hesapla</button>
+          <button class="ghost" id="btn_reset1">Sıfırla</button>
+        </div>
+
+        <div id="out1" class="output hidden"></div>
+      </div>
+    </section>
+
+    <!-- CALC 2 -->
+    <section id="view-calc2" class="view">
+      <div class="card">
+        <div class="topbar">
+          <button class="back-btn" data-back>← Menüye Dön</button>
+          <h2>2) Finalde Minimum Kaç Lazım?</h2>
+        </div>
+
+        <p class="muted lines">
+          <span>Kurul notlarını gir → finalden minimum kaç alman gerekiyor gör.</span>
+          <span>Kurul notlarını gir + girmediğin kurullar için 0 yaz → kalan kurullardan kaç alırsan finali 50'ye bırakabiliyorsun gör.</span>
+        </p>
+
+        <div class="form-grid">
+          <div class="field"><label>Kurul 1 (%11)</label><input id="c2_k1" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 2 (%12)</label><input id="c2_k2" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 3 (%11)</label><input id="c2_k3" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 4 (%12)</label><input id="c2_k4" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 5 (%10)</label><input id="c2_k5" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Bilimsellik (%2)</label><input id="c2_bil" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>İyi Hekimlik Uyg. (%2)</label><input id="c2_ihu" type="number" min="0" max="100" step="0.1" /></div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="btn_calc2">Hesapla</button>
+          <button class="ghost" id="btn_reset2">Sıfırla</button>
+        </div>
+
+        <div id="out2" class="output hidden"></div>
+      </div>
+    </section>
+
+    <!-- CALC 3 -->
+    <section id="view-calc3" class="view">
+      <div class="card">
+        <div class="topbar">
+          <button class="back-btn" data-back>← Menüye Dön</button>
+          <h2>3) Finalsiz Olacak Mı?</h2>
+        </div>
+
+        <p class="muted lines">
+          <span>Kurul notlarını gir → finalsiz geçebiliyor musun gör.</span>
+          <span>Kurul notlarını gir + girmediğin kurullar için 0 yaz → kalan kurullardan kaç alırsan finalsiz geçebiliyorsun gör.</span>
+        </p>
+
+        <div class="form-grid">
+          <div class="field"><label>Kurul 1 (%11)</label><input id="c3_k1" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 2 (%12)</label><input id="c3_k2" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 3 (%11)</label><input id="c3_k3" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 4 (%12)</label><input id="c3_k4" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Kurul 5 (%10)</label><input id="c3_k5" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>Bilimsellik (%2)</label><input id="c3_bil" type="number" min="0" max="100" step="0.1" /></div>
+          <div class="field"><label>İyi Hekimlik Uyg. (%2)</label><input id="c3_ihu" type="number" min="0" max="100" step="0.1" /></div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="btn_calc3">Hesapla</button>
+          <button class="ghost" id="btn_reset3">Sıfırla</button>
+        </div>
+
+        <div id="out3" class="output hidden"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="muted">Developed by Yusuf Sami Öztürk</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
